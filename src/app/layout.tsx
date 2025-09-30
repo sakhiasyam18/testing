@@ -1,15 +1,16 @@
 // src/app/layout.tsx
-import "./globals.css";
 import type { Metadata } from "next";
-import Script from "next/script"; // Import Script component
+// import React from "react";
+import "./globals.css"; // Pastikan ini mengimpor file CSS global kita
 
 export const metadata: Metadata = {
-  title: "Sewa Sepeda",
-  description: "Aplikasi sewa sepeda",
+  title: "Persewaan Sepeda Online di Malang", // Judul SEO kita
+  description:
+    "Sistem Online Persewaan dan Manajemen Sepeda Mitra Gowes Lur Malang untuk Mendukung Kesehatan, Kesejahteraan, serta Energi Bersih dan Terjangkau (SDGs 3&7)", // Deskripsi SEO kita
+  // icons: {
+  //   icon: "/logo-goweslurmalang.ico",
+  // },
 };
-
-// Dapatkan Client Key dari environment variable
-const midtransClientKey = process.env.NEXT_PUBLIC_MIDTRANS_CLIENT_KEY;
 
 export default function RootLayout({
   children,
@@ -17,17 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        {/* Tambahkan script Snap.js di sini */}
-        <Script
-          type="text/javascript"
-          src="https://app.sandbox.midtrans.com/snap/snap.js"
-          data-client-key={midtransClientKey}
-          strategy="beforeInteractive" // Load script sebelum page interaktif
-        />
-      </head>
-      <body>{children}</body>
+    <html lang="id">
+      <body>
+        {/* Global UI elements like Header, Footer, Navigation */}
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
